@@ -9,7 +9,7 @@ import DailyProgression from './routes/DailyProgression';
 function App() {
   return (
     <div className="App">
-      <h1>Weight Tracker React</h1>
+      <h1 className="uk-heading-small">Weight Tracker React</h1>
       <nav className="uk-navbar-container uk-navbar-transparent">
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
