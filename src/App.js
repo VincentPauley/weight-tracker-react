@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import heart from './images/heart-attack.png';
 import './App.css';
 import { Routes, Route, NavLink } from 'react-router-dom';
 
@@ -9,7 +9,11 @@ import DailyProgression from './routes/DailyProgression';
 function App() {
   return (
     <div className="App">
-      <h1 className="uk-heading-small">Weight Tracker React</h1>
+      <header className="App-header">
+        <h1 className="uk-heading-small">Weight Tracker React</h1>
+        <img src={heart} className="logo" alt="logo" />
+      </header>
+
       <nav className="uk-navbar-container uk-navbar-transparent">
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
@@ -40,20 +44,23 @@ function App() {
           </ul>
         </div>
       </nav>
+      <div className="Route-Wrapper">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="daily-progression"
+            element={<DailyProgression />}
+          ></Route>
+          <Route path="/all-records" element={<AllRecords />}></Route>
+        </Routes>
+      </div>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="Route-Wrapper">
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route
-              path="daily-progression"
-              element={<DailyProgression />}
-            ></Route>
-            <Route path="/all-records" element={<AllRecords />}></Route>
-          </Routes>
-        </div>
-      </header>
+      <div>
+        Footer:{' '}
+        <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">
+          Heart icons created by Freepik - Flaticon
+        </a>
+      </div>
     </div>
   );
 }
