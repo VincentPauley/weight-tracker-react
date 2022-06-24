@@ -43,14 +43,16 @@ function App() {
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="daily-progression"
-            element={<DailyProgression />}
-          ></Route>
-          <Route path="/all-records" element={<AllRecords />}></Route>
-        </Routes>
+        <div className="Route-Wrapper">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="daily-progression"
+              element={<DailyProgression />}
+            ></Route>
+            <Route path="/all-records" element={<AllRecords />}></Route>
+          </Routes>
+        </div>
       </header>
     </div>
   );

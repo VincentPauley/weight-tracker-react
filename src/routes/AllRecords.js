@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
 import api from '../api';
 
 import ErrorBlock from '../components/ErrorBlock';
+import RecordCard from '../components/RecordCard';
 
 function AllRecords() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -26,12 +28,26 @@ function AllRecords() {
 
   return (
     <div>
-      <h3>All Records ({records.length})</h3>
-      <p>
-        Here you can view all raw records without any metrics formatting, this
-        is essentially a full read of the DB.
-      </p>
+      <article className="uk-article uk-text-left">
+        <h3 className="uk-article-title">All Records</h3>
+        <p className="uk-article-meta">
+          Here you can view all raw records without any metrics formatting, this
+          is essentially a full read of the DB.
+        </p>
+      </article>
       {errorMessage ? <ErrorBlock message={errorMessage} /> : null}
+      <ul className="uk-list">
+        {records.map(record => {
+          return (
+            <RecordCard
+              key={record.id}
+              id={record.id}
+              timestamp={record.timestamp}
+              weight={record.weight}
+            />
+          );
+        })}
+      </ul>
     </div>
   );
 }
